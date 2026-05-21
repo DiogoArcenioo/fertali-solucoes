@@ -508,6 +508,27 @@
        SCRIPTS — reveal on scroll + counters + cursor follow
        ============================================================= -->
   <script>
+    const nav = document.querySelector('.nav');
+    const navThemeTargets = Array.from(document.querySelectorAll('main > section, main > .marquee, footer'));
+
+    function updateNavTheme() {
+      if (!nav) return;
+
+      const sampleY = nav.offsetHeight + 12;
+      const activeTarget = navThemeTargets.find((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top <= sampleY && rect.bottom >= sampleY;
+      });
+
+      const darkSurface = activeTarget?.matches('.hero, .section--dark, .footer');
+      nav.classList.toggle('nav--on-light', Boolean(activeTarget && !darkSurface));
+      nav.classList.toggle('nav--compact', window.scrollY > 8);
+    }
+
+    updateNavTheme();
+    window.addEventListener('scroll', updateNavTheme, { passive: true });
+    window.addEventListener('resize', updateNavTheme);
+
     // Intersection-based reveal
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
