@@ -476,15 +476,27 @@
 
         </div>
 
-        <div class="product-catalog reveal">
-          <div>
-            <span class="product-catalog__label">Catálogo Fertali</span>
-            <h3>Veja o PDF completo com materiais e soluções disponíveis.</h3>
-          </div>
-          <a class="btn btn--cyan" href="uploads/catalogo-fertali.pdf" download>
-            <span>Baixar PDF</span>
-            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3 V11 M5 8 L8 11 L11 8 M4 13 H12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+        <div class="products products--catalog reveal-stagger">
+
+          <article class="product product--catalog">
+            <a class="product__visual product__visual--pdf" href="uploads/catalogo-fertali.pdf" download aria-label="Baixar catálogo Fertali em PDF">
+              <span class="product__badge">PDF</span>
+              <img class="product__mark" src="assets/icone-f-real.png" alt="" aria-hidden="true" />
+              <span class="product__code">Catálogo</span>
+              <span class="product__hint">Baixar PDF</span>
+            </a>
+            <div class="product__body">
+              <h3>Catálogo Fertali</h3>
+              <p>Baixe o PDF com os materiais e soluções disponíveis da Fertali.</p>
+              <div class="product__actions">
+                <a class="product__download" href="uploads/catalogo-fertali.pdf" download>
+                  <span>Baixar PDF</span>
+                  <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3 V11 M5 8 L8 11 L11 8 M4 13 H12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
 
       </div>
