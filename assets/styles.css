@@ -1012,7 +1012,7 @@ p { margin: 0; text-wrap: pretty; }
    PRODUTOS
    =================================================================== */
 #produtos.section--dark {
-  padding-bottom: 0;
+  padding-bottom: clamp(80px, 12vh, 140px);
   background:
     radial-gradient(ellipse 60% 50% at 85% 15%, rgba(89,203,232,0.08) 0%, transparent 60%),
     radial-gradient(ellipse 55% 45% at 15% 85%, rgba(89,203,232,0.05) 0%, transparent 60%),
@@ -1021,6 +1021,10 @@ p { margin: 0; text-wrap: pretty; }
 
 #produtos .section__head {
   border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+#produtos .section__head--simple {
+  grid-template-columns: 1fr;
 }
 
 .product-showcase {
@@ -1032,6 +1036,10 @@ p { margin: 0; text-wrap: pretty; }
 .product-card {
   min-width: 0;
   color: var(--paper);
+}
+
+.product-card--video {
+  grid-column: 1 / -1;
 }
 
 .product-card__media {
@@ -1052,9 +1060,11 @@ p { margin: 0; text-wrap: pretty; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(10, 2, 56, 0.06) 0%, rgba(10, 2, 56, 0.48) 100%),
-    repeating-linear-gradient(135deg, rgba(89, 203, 232, 0.08) 0 1px, transparent 1px 20px);
-  opacity: 0.74;
+    linear-gradient(135deg, rgba(89, 203, 232, 0.36) 0%, rgba(10, 2, 56, 0.32) 58%, rgba(89, 203, 232, 0.2) 100%),
+    linear-gradient(180deg, rgba(10, 2, 56, 0.04) 0%, rgba(10, 2, 56, 0.5) 100%),
+    repeating-linear-gradient(135deg, rgba(89, 203, 232, 0.12) 0 1px, transparent 1px 20px);
+  mix-blend-mode: screen;
+  opacity: 0.78;
   z-index: 1;
   pointer-events: none;
   transition: opacity 0.4s var(--ease);
@@ -1084,9 +1094,21 @@ p { margin: 0; text-wrap: pretty; }
   filter: saturate(1.05) contrast(1.02);
 }
 
+.product-card__media video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.product-card--video .product-card__media {
+  aspect-ratio: 16 / 7;
+  min-height: clamp(320px, 44vw, 620px);
+}
+
 .product-card:hover .product-card__media::before,
 .product-card:focus-within .product-card__media::before {
-  opacity: 0.52;
+  opacity: 0.48;
 }
 
 .product-card__label {
